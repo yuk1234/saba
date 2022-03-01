@@ -18,11 +18,8 @@ hello = 3 , world = 4
  */
 const main = () => {
 
-    //D-掛け算
     console.log(lines[0] * lines[1])
 
-    // 空行
-    console.log('')
 }
 
 /**
