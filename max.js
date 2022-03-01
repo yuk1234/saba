@@ -17,14 +17,19 @@ hello = 3 , world = 4
  *  lines: Array<string> 入力された行(末尾は必ず改行)分の配列
  */
 const main = () => {
-    const N = lines[0]
-    for(let i = 0; i < N; i++) {
-        const line = lines[i+1].split(' ')
-        console.log('hello = ' + line[0] + ', world = ' + line[1])
+    const N = lines.length
+    let max = 0
+    for(let i = 0; i < N-1; i++) {
+        
+        if(parseInt(lines[i]) > parseInt(lines[i+1])){
+            max = parseInt(lines[i])
+        }else{
+            max = parseInt(lines[i+1])
+        }
     }
 
     // 空行
-    console.log('')
+    console.log(max)
 }
 
 /**

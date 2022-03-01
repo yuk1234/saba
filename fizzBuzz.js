@@ -17,14 +17,20 @@ hello = 3 , world = 4
  *  lines: Array<string> 入力された行(末尾は必ず改行)分の配列
  */
 const main = () => {
-    const N = lines[0]
-    for(let i = 0; i < N; i++) {
-        const line = lines[i+1].split(' ')
-        console.log('hello = ' + line[0] + ', world = ' + line[1])
+    const N = Number(lines[0])
+    for(let i = 1; i <= N; i++) {
+        const number = N-(N-i)
+        if(number%3 === 0 && number%5 === 0){
+            console.log("Fizz Buzz")
+        }else if(number%3 === 0){
+            console.log("Fizz")
+        }else if(number%5 === 0){
+            console.log("Buzz")
+        }else{
+            console.log(number)
+        }
     }
 
-    // 空行
-    console.log('')
 }
 
 /**
