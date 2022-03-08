@@ -14,8 +14,6 @@ const main = () => {
 
     //座席数分の要素をリストに追加
     let arr = [...Array(chair)].map(() => false);
-    console.log(arr) 
-    console.log(arr.length)
 
     for(i=0; i<group; i++){
         const line2 = lines[i+1].split(' ')
@@ -26,16 +24,22 @@ const main = () => {
 
         //座りたい席番の範囲要素を取り出し、空席かどうか確認
         //false:空席　true:着席済み
-        const afterArr = arr.slice(member-1,member+memberChair-1)
-        console.log(afterArr)
+        const searchArr = arr.slice(memberChair-1,member+memberChair-1)
+        console.log(searchArr)
 
         //座りたい範囲がすべて空席だったら、trueに変える
-        if(!afterArr.includes(true)){
-            console.log("★")
-            arr.slice(member-1,member,true)
+        if(!searchArr.includes(true)){
+
+            //配列要素をtrueに変更
+            for(i=memberChair-1; i<member+memberChair-1; i++){
+                arr[i] = true
+            // arr.splice(memberChair-1,member,true)
+            }
+            console.log(arr)
         }
     }
     console.log(arr)
+    
     let count = 0
     for (i = 0;  i < arr.length; i++) {
         if(arr[i] == true){
