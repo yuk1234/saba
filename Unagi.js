@@ -9,8 +9,8 @@ const main = () => {
 
     //入力値を座席数＆グループ数用の変数に分ける
     const line = lines[0].split(' ')
-    const chair =Number(line[0])
-    const group = Number(line[1])
+    const chair =Number(line[0]) //店内の座席数
+    const group = Number(line[1]) //来店したグループ数
 
     //座席数分の要素をリストに追加
     let arr = [...Array(chair)].map(() => false);
@@ -19,13 +19,17 @@ const main = () => {
 
     for(i=0; i<group; i++){
         const line2 = lines[i+1].split(' ')
-        const member = Number(line2[0])
-        const memberChair = Number(line2[1])
+        const member = Number(line2[0]) //グループの人数
+        const memberChair = Number(line2[1]) //グループの最初の人が座る席番号
         console.log("人数" + member)
         console.log("座席番号" + memberChair)
 
+        //座りたい席番の範囲要素を取り出し、空席かどうか確認
+        //false:空席　true:着席済み
         const afterArr = arr.slice(member-1,member+memberChair-1)
         console.log(afterArr)
+
+        //座りたい範囲がすべて空席だったら、trueに変える
         if(!afterArr.includes(true)){
             console.log("★")
             arr.slice(member-1,member,true)
